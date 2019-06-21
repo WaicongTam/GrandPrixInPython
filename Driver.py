@@ -39,80 +39,78 @@ class Driver:
         self.accumulatedTime += increment
     
     def setAccumulatedScore(self, newAccumulatedScore):
-        if validAccumulatedScore(newAccumulatedScore):
+        try:
+            validAccumulatedScore(newAccumulatedScore)
             self.accumulatedScore = newAccumulatedScore
             return True
-        else:
+        except ValueError:
             return False
     
     def setAccumulatedTime(self, newAccumulatedTime):
-        if validAccumulatedTime(newAccumulatedTime):
+        try:
+            validAccumulatedTime(newAccumulatedTime)
             self.accumulatedTime = newAccumulatedTime
             return True
-        else:
+        except ValueError:
             return False
     
     def setEligibility(self, newEligibility):
         self.eligibleToRace = newEligibility
     
     def setName(self, newName):
-        if validName(newName):
+        try:
+            validName(newName)
             self.name = newName
             return True
-        else:
+        except ValueError:
             return False
     
     def setRanking(self, newRanking):
-        if validRanking(newRanking):
+        try:
+            validRanking(newRanking)
             self.ranking = newRanking
             return True
-        else:
+        except ValueError:
             return False
 
     def setSkill(self, newSkill):
-        self.skill = newSkill
+        try:
+            validSkill(newSkill)
+            self.skill = newSkill
+            return True
+        except ValueError:
+            return False
     
     def setTyre(self, newTyre):
-        if validTyre(newTyre):
+        try:
+            validTyre(newTyre)
             self.tyre = newTyre
             return True
-        else:
+        except ValueError:
             return False
 
 
 def validAccumulatedScore(newAccumulatedScore):
     if newAccumulatedScore < 0:
-        return False
-    else:
-        return True
+        raise ValueError("This is a invalid accumulated score!")
 
 def validAccumulatedTime(newAccumulatedTime):
     if newAccumulatedTime < 0:
-        return False
-    else:
-        return True
+        raise ValueError("This is a invalid accumulated time!")
 
 def validName(newName):
     if len(newName) == 0:
-        return False
-    else:
-        return True
+        raise ValueError("This is a invalid accumulated namee!")
 
 def validRanking(newRanking):
     if newRanking < 1:
-        return False
-    else:
-        return True
+        raise ValueError("This is a invalid accumulated ranking!")
 
 def validSkill(newSkill):
     skillLower = newSkill.lower()
     if skillLower != "overtaking" or skillLower != "cornering" or skillLower != "braking":
-        return False
-    else:
-        return True
+        raise ValueError("This is a invalid accumulated skill!")
 
 def validTyre(newTyre):
     if newTyre.lower() != "dry" or newTyre.lower != "wet":
-        return False
-    else:
-        return True
+        raise ValueError("This is a invalid accumulated tyre!")
