@@ -8,10 +8,8 @@ class Driver:
         self.accumulatedTime = newAccumulatedTime
         self.tyre = newTyre
     
-    def displayDriver(self):
-        info = self.name + "," + str(self.ranking) + "," + self.skill + "," + str(self.eligibleToRace) + "," + \
-            str(self.accumulatedScore) + "," + str(self.accumulatedTime) + "," + self.tyre
-        return info
+    def __str__(self):
+        return "{0},{1},{2},{3},{4},{5},{6}".format(self.name, self.ranking, self.skill, self.eligibleToRace, self.getAccumulatedScore, self.getAccumulatedTime, self.tyre)
     
     def getAccumulatedScore(self):
         return self.accumulatedScore
