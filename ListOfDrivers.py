@@ -18,6 +18,22 @@ class ListOfDrivers:
     def getDrivers(self):
         return self.drivers
 
+    def resetAccumulatedScore(self):
+        for i in self.drivers:
+            i.setAccumulatedScore = 0
+    
+    def resetAcuumulatedTime(self):
+        for i in self.drivers:
+            i.setAccumulatedTime = 0
+
+    def resetEligilibility(self):
+        for i in self.drivers:
+            i.setEligibility = True
+    
+    def restTyres(self):
+        for i in self.drivers:
+            i.setTyre = "Dry"
+    
     def setDriver(self, index, newName, newRanking, newSkill, newEligibility, newAccumulatedScore, newAccumulatedTime, newTyre):
         flag = True
         try:
