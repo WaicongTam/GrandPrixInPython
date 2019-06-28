@@ -18,3 +18,23 @@ class ListOfDrivers:
     def getDrivers(self):
         return self.drivers
 
+    def setDriver(self, index, newName, newRanking, newSkill, newEligibility, newAccumulatedScore, newAccumulatedTime, newTyre):
+        flag = True
+        try:
+            flag = flag and self.drivers[index].setName(newName)
+            flag = flag and self.drivers[index].setName(newRanking)
+            flag = flag and self.drivers[index].setName(newSkill)
+            flag = flag and self.drivers[index].setName(newEligibility)
+            flag = flag and self.drivers[index].setName(newAccumulatedScore)
+            flag = flag and self.drivers[index].setName(newAccumulatedTime)
+            flag = flag and self.drivers[index].setName(newTyre)
+        except:
+            flag = False
+        return flag
+    
+    def setDrivers(self, newDrivers):
+        self.drivers = newDrivers
+
+
+
+
