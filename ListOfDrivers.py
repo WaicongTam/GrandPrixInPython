@@ -35,6 +35,10 @@ class ListOfDrivers:
     def setDrivers(self, newDrivers):
         self.drivers = newDrivers
 
-
+    def sortByScore(self):
+        self.drivers = sorted(drivers, key = Driver.getAccumulatedScore)
+    
+    def sortByTime(self):
+        self.drivers = sorted(drivers, key = Driver.getAccumulatedTime)
 
 
