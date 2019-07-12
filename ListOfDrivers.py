@@ -52,9 +52,7 @@ class ListOfDrivers:
         self.drivers = newDrivers
 
     def sortByScore(self):
-        self.drivers = sorted(drivers, key = Driver.getAccumulatedScore)
+        self.drivers = sorted(self.drivers, key=lambda driver: driver.getAccumulatedScore())
     
     def sortByTime(self):
-        self.drivers = sorted(drivers, key = Driver.getAccumulatedTime)
-
-
+        self.drivers = sorted(self.drivers, key=lambda driver: driver.getAccumulatedTime())
